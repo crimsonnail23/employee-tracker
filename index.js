@@ -34,7 +34,8 @@ const addDepartment=()=>{
             //const newDepartment = answers.add_department
             //console.log(newDepartment);
             db.addDepartment(answers.add_department);
-            //console.log(`${newDepartment} was added`);
+            console.log(`${newDepartment} was added`);
+            mainMenu();
         });
         
 }

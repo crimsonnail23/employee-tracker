@@ -11,6 +11,15 @@ class DB_Queries{
        const sql=  `SELECT *
                     FROM department`;
         db.query(sql,callback);
+    };
+    findRoles(callback){
+        const sql = `SELECT *
+                    FROM role`
+        db.query(sql, callback);            
+    };
+    findEmployees(callback){
+        const sql=`SELECT * FROM EMPLOYEE`
+        db.query(sql,callback);
     }
 }
 

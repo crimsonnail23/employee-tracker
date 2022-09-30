@@ -11,7 +11,7 @@ const mainMenuArray =[
         type: 'list',
         name: 'main_menu',
         message: 'What would you like to do?',
-        choices: ['view all departments','view all roles', 'view all departments','add a department', 'add a role', 'add an employee', 'update an employee role']
+        choices: ['view all departments','view all roles', 'view all employees','add a department', 'add a role', 'add an employee', 'update an employee role']
 
     }
 ]
@@ -19,25 +19,26 @@ const db = new DB_Queries()
 const mainMenu=()=>{
     return inquirer.prompt(mainMenuArray)
         .then(userChoice =>{
-            // if(userChoice.main_menu==='view all departments'){
-            //     db.findDepartments((err,data)=>{
-            //         console.table(data);
-            //         mainMenu();
-            //     });
-                
-            // }
-
             switch(userChoice.main_menu) {
                 case 'view all departments':
                     db.findDepartments((err,data)=>{
                         console.table(data);
                         mainMenu();
                     });
-
+                    
                     break
-                // case 'another value':
-
-                //     break
+                case 'view all roles':
+                    db.findRoles((err,data)=>{
+                        console.table(data);
+                        mainMenu();
+                    });
+                    break;
+                case 'view all employees':
+                    db.findEmployees((err, data)=>{
+                        console.table(data);
+                        mainMenu();
+                    })
+                    break;
             }
         })
 }

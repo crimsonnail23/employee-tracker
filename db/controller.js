@@ -7,10 +7,10 @@ const db = require('./connection')
 
 class DB_Queries{
 
-    findDepartments(){
-       const sql=  `SELECT name
+    findDepartments(callback){
+       const sql=  `SELECT *
                     FROM department`;
-        db.query(sql);
+        db.query(sql,callback);
     }
 }
 

@@ -11,7 +11,7 @@ const mainMenuArray =[
         type: 'list',
         name: 'main_menu',
         message: 'What would you like to do?',
-        choices: ['view all departments']
+        choices: ['view all departments','view all roles', 'view all departments','add a department', 'add a role', 'add an employee', 'update an employee role']
 
     }
 ]
@@ -22,7 +22,9 @@ const mainMenu=()=>{
             if(userChoice.main_menu==='view all departments'){
                 db.findDepartments((err,data)=>{
                     console.table(data);
+                    mainMenu();
                 });
+                
             }
 
             // switch(userChoice.main_menu) {

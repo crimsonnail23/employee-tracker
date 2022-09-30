@@ -15,7 +15,28 @@ const mainMenuArray =[
 
     }
 ]
+
+//following array will have questions to be asked when 
+const addDepartmentArray=[
+    {
+        type: 'input',
+        name: 'add_department',
+        message: 'what Department would you like to add?'
+    }
+]
+
 const db = new DB_Queries()
+
+//following code will be run when the user chooses to add a department.
+const addDepartment=()=>{
+    return inquirer.prompt(addDepartmentArray)
+        .then((answers)=>{
+            //console.log(answers.add_department);
+        });
+        
+}
+
+//following code will be run when index.js is run in the terminal.
 const mainMenu=()=>{
     return inquirer.prompt(mainMenuArray)
         .then(userChoice =>{
@@ -38,6 +59,9 @@ const mainMenu=()=>{
                         console.table(data);
                         mainMenu();
                     })
+                    break;
+                case 'add a department':
+                    addDepartment();
                     break;
             }
         })

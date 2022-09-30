@@ -31,7 +31,10 @@ const db = new DB_Queries()
 const addDepartment=()=>{
     return inquirer.prompt(addDepartmentArray)
         .then((answers)=>{
-            //console.log(answers.add_department);
+            //const newDepartment = answers.add_department
+            //console.log(newDepartment);
+            db.addDepartment(answers.add_department);
+            //console.log(`${newDepartment} was added`);
         });
         
 }

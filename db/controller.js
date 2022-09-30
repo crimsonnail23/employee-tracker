@@ -21,6 +21,11 @@ class DB_Queries{
         const sql=`SELECT * FROM EMPLOYEE`
         db.query(sql,callback);
     }
+    addDepartment(newDepartment){
+        console.log(newDepartment+ ' is the new department');
+        const sql = `INSERT INTO department (name) VALUES (?)`
+        db.query(sql, newDepartment);
+    }
 }
 
 module.exports = DB_Queries;

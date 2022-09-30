@@ -19,22 +19,26 @@ const db = new DB_Queries()
 const mainMenu=()=>{
     return inquirer.prompt(mainMenuArray)
         .then(userChoice =>{
-            if(userChoice.main_menu==='view all departments'){
-                db.findDepartments((err,data)=>{
-                    console.table(data);
-                    mainMenu();
-                });
+            // if(userChoice.main_menu==='view all departments'){
+            //     db.findDepartments((err,data)=>{
+            //         console.table(data);
+            //         mainMenu();
+            //     });
                 
-            }
-
-            // switch(userChoice.main_menu) {
-            //     case 'view_departments':
-
-            //         break
-            //     case 'another value':
-
-            //         break
             // }
+
+            switch(userChoice.main_menu) {
+                case 'view all departments':
+                    db.findDepartments((err,data)=>{
+                        console.table(data);
+                        mainMenu();
+                    });
+
+                    break
+                // case 'another value':
+
+                //     break
+            }
         })
 }
 

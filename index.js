@@ -44,6 +44,31 @@ const addRoleArray=[
     }
 ]
 
+addEmployeeArray =[
+    {
+        type: 'input',
+        name: 'employee_first_name',
+        message: 'what is the name of the new employee'
+    },
+    {
+        type: 'input',
+        name: 'employee_last_name',
+        message: 'what is their last name?'
+    },
+    {
+        type: 'list',
+        name:'employee_role',
+        message: 'what is their role? pick the role by the id',
+        choices: [1,2,3]
+    },
+    {
+        type: 'list',
+        name: 'employee_manager',
+        message: 'who is their manager? pick by employee id of the manager',
+        choices: [1,2,3]
+    }
+]
+
 const db = new DB_Queries()
 
 //following code will be run when the user chooses to add a department.

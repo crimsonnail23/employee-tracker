@@ -25,6 +25,7 @@ const addDepartmentArray=[
     }
 ]
 
+//following array will have questions to be asked when use chooses 'add a role' from the mainMenu();
 const addRoleArray=[
     {
         type:'input',
@@ -44,6 +45,7 @@ const addRoleArray=[
     }
 ]
 
+//following array will have questions to be asked when use chooses 'add an employee' from the mainMenu();
 const addEmployeeArray =[
     {
         type: 'input',
@@ -68,6 +70,23 @@ const addEmployeeArray =[
         choices: [1,2,3]
     }
 ]
+
+//following array will have questions to be asked when use chooses 'update an employee role' from the mainMenu();
+const updateEmployeeRole = [
+    {
+        type: 'list',
+        name: 'employee',
+        message: 'which employee is being updated? pick by their employee id',
+        choices: [1,2,3,4]
+    },
+    {
+        type: 'list',
+        name: 'new_role',
+        message: 'what is the new role of the employee? pick by the id of the role',
+        choices: [1,2,3]
+    }
+]
+
 
 const db = new DB_Queries()
 

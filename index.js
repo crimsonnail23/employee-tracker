@@ -166,7 +166,7 @@ const mainMenu=()=>{
                     break;
                 case 'update an employee role':
                     updateEmployeeRole();
-                    break        
+                    break;        
             }
         })
 }

@@ -44,6 +44,12 @@ class DB_Queries{
         const sql = `INSERT INTO employee (first_name,last_name,role_id,manager_id) VALUES (?,?,?,?)`
         db.query(sql, newEmployeeDataArray);
     }
+    updateEmployeeRole(updatedInfo){
+        const{employee, new_role}=updatedInfo
+        const updatedInfoArray=[new_role,employee]
+        const sql = `UPDATE employee SET role_id=? WHERE employee_id =?`
+        db.query(sql,updatedInfoArray);
+    }
 }
 
 module.exports = DB_Queries;

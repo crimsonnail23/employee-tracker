@@ -26,10 +26,13 @@ class DB_Queries{
         const sql = `INSERT INTO department (name) VALUES (?)`
         db.query(sql, newDepartment);
     }
-    addRole(newRole){
-        console.log(newRole + 'is the new role')
+    addRole(newRoleData){
+        console.log('controller js ln 30 ',newRoleData)
+        const{add_role_title,add_role_salary,add_department_id}=newRoleData
+        console.log(add_role_title,add_role_salary,add_department_id)
+        const destructuredNewRoleData =[add_role_title,add_role_salary,add_department_id]
         const sql = `INSERT INTO role (title, salary, department_id) VALUES(?,?,?)`
-        db.query(sql,newRole)
+        db.query(sql,destructuredNewRoleData);
     }
 }
 

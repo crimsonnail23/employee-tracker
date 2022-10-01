@@ -57,6 +57,14 @@ const addDepartment=()=>{
         
 }
 
+const addRole=()=>{
+    return inquirer.prompt(addRoleArray)
+        .then((answers)=>{
+            console.log(answers);
+            db.addRole(answers);
+        });
+}
+
 //following code will be run when index.js is run in the terminal.
 const mainMenu=()=>{
     return inquirer.prompt(mainMenuArray)
@@ -84,6 +92,9 @@ const mainMenu=()=>{
                 case 'add a department':
                     addDepartment();
                     break;
+                case 'add a role':
+                    addRole();
+                    break;    
             }
         })
 }

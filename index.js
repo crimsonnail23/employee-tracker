@@ -94,6 +94,8 @@ const db = new DB_Queries()
 const addDepartment=()=>{
     return inquirer.prompt(addDepartmentArray)
         .then((answers)=>{
+
+            //this will call on a new instance of DB_Queries and then pass through answers.add_department to the addDepartment method.
             db.addDepartment(answers.add_department);
             console.log(`${answers.add_department} was added`);
             mainMenu();
@@ -101,6 +103,7 @@ const addDepartment=()=>{
         
 }
 
+//following code will be run when the user chooses to add a role.
 const addRole=()=>{
     return inquirer.prompt(addRoleArray)
         .then((answers)=>{
@@ -111,6 +114,7 @@ const addRole=()=>{
         });
 }
 
+//following code will be run when the user chooses to add an employee.
 const addEmployee=()=>{
     return inquirer.prompt(addEmployeeArray)
         .then((answers)=>{
@@ -121,6 +125,7 @@ const addEmployee=()=>{
         })
 }
 
+//following code will be run when the user chooses to update the role of an employee.
 const updateEmployeeRole=()=>{
     return inquirer.prompt(updateEmployeeRoleArray)
         .then((answers)=>{
@@ -131,7 +136,7 @@ const updateEmployeeRole=()=>{
         })
 }
 
-//following code will be run when index.js is run in the terminal.
+//following code will be run when mainMenu() is called.
 const mainMenu=()=>{
     return inquirer.prompt(mainMenuArray)
         .then(userChoice =>{
@@ -171,4 +176,5 @@ const mainMenu=()=>{
         })
 }
 
+//this will run when index.js is run in the terminal.
 mainMenu();

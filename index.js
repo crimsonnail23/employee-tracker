@@ -44,11 +44,11 @@ const addRoleArray=[
     }
 ]
 
-addEmployeeArray =[
+const addEmployeeArray =[
     {
         type: 'input',
         name: 'employee_first_name',
-        message: 'what is the name of the new employee'
+        message: 'what is the first name of the new employee'
     },
     {
         type: 'input',
@@ -92,6 +92,16 @@ const addRole=()=>{
         });
 }
 
+const addEmployee=()=>{
+    return inquirer.prompt(addEmployeeArray)
+        .then((answers)=>{
+            console.log(answers);
+            db.addEmployee(answers);
+            console.log(`${answers.employee_first_name} ${answers.employee_last_name} was added`)
+            mainMenu();
+        })
+}
+
 //following code will be run when index.js is run in the terminal.
 const mainMenu=()=>{
     return inquirer.prompt(mainMenuArray)
@@ -121,7 +131,10 @@ const mainMenu=()=>{
                     break;
                 case 'add a role':
                     addRole();
-                    break;    
+                    break;
+                case 'add an employee':
+                    addEmployee();
+                    break;        
             }
         })
 }

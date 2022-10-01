@@ -45,9 +45,10 @@ class DB_Queries{
         db.query(sql, newEmployeeDataArray);
     }
     updateEmployeeRole(updatedInfo){
+        console.log(updatedInfo)
         const{employee, new_role}=updatedInfo
         const updatedInfoArray=[new_role,employee]
-        const sql = `UPDATE employee SET role_id=? WHERE employee_id =?`
+        const sql = `UPDATE employee SET role_id=? WHERE id =?`
         db.query(sql,updatedInfoArray);
     }
 }

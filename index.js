@@ -72,7 +72,7 @@ const addEmployeeArray =[
 ]
 
 //following array will have questions to be asked when use chooses 'update an employee role' from the mainMenu();
-const updateEmployeeRole = [
+const updateEmployeeRoleArray = [
     {
         type: 'list',
         name: 'employee',
@@ -104,7 +104,7 @@ const addDepartment=()=>{
 const addRole=()=>{
     return inquirer.prompt(addRoleArray)
         .then((answers)=>{
-            console.log(answers);
+            //console.log(answers);
             db.addRole(answers);
             console.log(`${answers.add_role_title} was added.`)
             mainMenu();
@@ -114,9 +114,19 @@ const addRole=()=>{
 const addEmployee=()=>{
     return inquirer.prompt(addEmployeeArray)
         .then((answers)=>{
-            console.log(answers);
+            //console.log(answers);
             db.addEmployee(answers);
             console.log(`${answers.employee_first_name} ${answers.employee_last_name} was added`)
+            mainMenu();
+        })
+}
+
+const updateEmployeeRole=()=>{
+    return inquirer.prompt(updateEmployeeRoleArray)
+        .then((answers)=>{
+            //console.log(answers)
+            db.updateEmployeeRole(answers)
+            console.log('employee was updated');
             mainMenu();
         })
 }
@@ -153,7 +163,10 @@ const mainMenu=()=>{
                     break;
                 case 'add an employee':
                     addEmployee();
-                    break;        
+                    break;
+                case 'update an employee role':
+                    updateEmployeeRole();
+                    break        
             }
         })
 }

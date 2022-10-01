@@ -16,12 +16,31 @@ const mainMenuArray =[
     }
 ]
 
-//following array will have questions to be asked when 
+//following array will have questions to be asked when use chooses 'add a department' from the mainMenu();
 const addDepartmentArray=[
     {
         type: 'input',
         name: 'add_department',
         message: 'what Department would you like to add?'
+    }
+]
+
+const addRoleArray=[
+    {
+        type:'input',
+        name:'add_role_title',
+        message: 'what is the title of the role?'
+    },
+    {
+        type: 'input',
+        name: 'add_role_salary',
+        message: 'what is the salary of the new role'
+    },
+    {
+        type: 'list',
+        name: 'add_department_id',
+        message: 'which department does this role belong to? pick the department by their id',
+        choices: [1,2,3]
     }
 ]
 
@@ -31,10 +50,8 @@ const db = new DB_Queries()
 const addDepartment=()=>{
     return inquirer.prompt(addDepartmentArray)
         .then((answers)=>{
-            //const newDepartment = answers.add_department
-            //console.log(newDepartment);
             db.addDepartment(answers.add_department);
-            console.log(`${newDepartment} was added`);
+            console.log(`${answers.add_department} was added`);
             mainMenu();
         });
         

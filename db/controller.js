@@ -26,6 +26,11 @@ class DB_Queries{
         const sql = `INSERT INTO department (name) VALUES (?)`
         db.query(sql, newDepartment);
     }
+    addRole(newRole){
+        console.log(newRole + 'is the new role')
+        const sql = `INSERT INTO role (title, salary, department_id) VALUES(?,?,?)`
+        db.query(sql,newRole)
+    }
 }
 
 module.exports = DB_Queries;

@@ -27,12 +27,22 @@ class DB_Queries{
         db.query(sql, newDepartment);
     }
     addRole(newRoleData){
-        console.log('controller js ln 30 ',newRoleData)
+        //console.log('controller js ln 30 ',newRoleData)
+
+        //following line destructures incoming data.
         const{add_role_title,add_role_salary,add_department_id}=newRoleData
-        console.log(add_role_title,add_role_salary,add_department_id)
+        //console.log(add_role_title,add_role_salary,add_department_id)
+
+        //following line puts destructured data into an array to then pass through the second argument of db.quiery().
         const destructuredNewRoleData =[add_role_title,add_role_salary,add_department_id]
         const sql = `INSERT INTO role (title, salary, department_id) VALUES(?,?,?)`
         db.query(sql,destructuredNewRoleData);
+    }
+    addEmployee(newEmployeeData){
+        const{employee_first_name,employee_last_name,employee_role,employee_manager}=newEmployeeData
+        const newEmployeeDataArray =[employee_first_name,employee_last_name,employee_role,employee_manager]
+        const sql = `INSERT INTO employee (first_name,last_name,role_id,manager_id) VALUES (?,?,?,?)`
+        db.query(sql, newEmployeeDataArray);
     }
 }
 

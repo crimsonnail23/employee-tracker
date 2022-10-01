@@ -62,6 +62,8 @@ const addRole=()=>{
         .then((answers)=>{
             console.log(answers);
             db.addRole(answers);
+            console.log(`${answers.add_role_title} was added.`)
+            mainMenu();
         });
 }
 
